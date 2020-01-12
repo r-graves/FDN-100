@@ -1,3 +1,4 @@
+"""This is a program I created for the first week homwork assignment"""
 # validate the user has entered a value for name
 def name_validation(nv):
     #did user put in a name?
