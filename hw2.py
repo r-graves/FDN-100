@@ -1,4 +1,4 @@
-"""this isthe homework assignment for week 2. I will create a query that will query purchaser name, address, phone,
+"""this is the homework assignment for week 2. I will create a query that will query purchaser name, address, phone,
 car make-model and purchase price
 
 program will then generate taxes, licnese, prep, and generate a total cost as a float as well as a unique id consisting of
