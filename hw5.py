@@ -58,5 +58,5 @@ print(out_3)
 
 #get the percent of one use words are we using percent of all words or percent of unique words
 one_pct = "{0:.2f}%".format((float(len(min_list)) / float(len(settle))) * 100)
-out_4 = str(one_pct) + " of unique words in the book appear only " + str(min_val) + " times." + "\n"
+out_4 = str(one_pct) + " of distinct words in the book appear only " + str(min_val) + " times." + "\n"
 print(out_4)
