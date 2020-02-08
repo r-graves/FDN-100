@@ -40,7 +40,7 @@ min_val = (min(word_counts.values()))
 sum_val = (sum(word_counts.values()))
 
 #using the value, I will loop through the dictionary to find the coresponding key
-for key, value in word_counts.iteritems():
+for key, value in word_counts.items():
     if value == max_val:
         max_key = key
 #print the most used word and the number of times used
@@ -49,7 +49,7 @@ print(out_2)
 #now I must get the number of words with the minimum value
 #build a list to contain all values
 min_list = []
-for key, value in word_counts.iteritems():
+for key, value in word_counts.items():
     if value == min_val:
         min_list.append(key)
 #print the number of words where the minimum number of words is
