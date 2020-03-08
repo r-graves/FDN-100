@@ -1,24 +1,32 @@
 """This is the final project. For this project, I will read in the Superstore data file from tableau and create a
-cross shop report
+report of sales, profit, and profit Margin by state The three criteria I have used
 1- read in and process a file
 2- use a dictionary
-3- use an if else statement
+3- use a function from pypi (Pandas, CSV, Tabulate)
 
+to run on mac:
+python3 hw9.py
 """
+#importing modules for pandas to read the input, as well as tabulae and csv to create my two outputs
 
 import pandas as pd
 import csv
 from tabulate import tabulate
 
-#function to read in the dataframe
+#function to read in the dataframe, this reads in the sample_superstore.csv table, which I downloaded from tableau
+#https://community.tableau.com/docs/DOC-1236
+
 def df_in():
+    #read in the input file, sample_superstore.xlsx converteted to CSV via excel
     df = pd.read_csv('sample_superstore.csv')
     #cut this down to just the columns I am interested in State, Sales profit
     df2 = df[['State','Sales','Profit']]
+    #rename the columns, probably unnecessary
     df2.columns = [['State','Sales','Profit']]
+    #return the dataframe
     return df2
 
-
+#df_in function reads n the dataframe
 df_in = df_in()
 #convert the data frame to a list
 list_in = [df_in.columns.values.tolist()] + df_in.values.tolist()
@@ -27,6 +35,7 @@ list_in = [df_in.columns.values.tolist()] + df_in.values.tolist()
 #initialize values for sales and profit dictionaries
 sales_dict = {}
 profit_dict = {}
+#x is the counter i will increment to read in the list_in list from above. Since the first row is headers, I will skip this
 x = 1
 while x < len(list_in):
     #I am going to split the list based on commas. Three fields, state, sales, and profit
@@ -94,8 +103,8 @@ while x < len(sales_dict):
         margin = 0
     #put the variables in the proper format for output
     margin_out = str('%{:.2f}'.format(margin))
-    sales_fmt =  str('${:.2f}'.format(float(sales_out)))
-    profit_fmt = str('${:.2f}'.format(float(profit_out)))
+    sales_fmt =  str('${:,.2f}'.format(float(sales_out)))
+    profit_fmt = str('${:,.2f}'.format(float(profit_out)))
     #write out the variables to a variable, and append it to the tabulation list
     record_out = ([str(state_out[1:-1])]+ [sales_fmt]+ [profit_fmt] + [margin_out])
     tabulation.append(record_out)
